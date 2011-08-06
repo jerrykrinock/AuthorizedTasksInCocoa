@@ -1,0 +1,152 @@
+\hypertarget{class_s_s_y_authorized_task_master}{
+\section{SSYAuthorizedTaskMaster Class Reference}
+\label{class_s_s_y_authorized_task_master}\index{SSYAuthorizedTaskMaster@{SSYAuthorizedTaskMaster}}
+}
+A class for accessing a privileged Helper Tool to perform authorized tasks.  
+
+
+{\tt \#import $<$SSYAuthorizedTaskmaster.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+(BOOL) - \hyperlink{class_s_s_y_authorized_task_master_1dc3930fb2b15f7945f8d129c055d9fa}{executeRequest:response\_\-p:error\_\-p:}
+\begin{CompactList}\small\item\em Executes request in the Helper Tool. \item\end{CompactList}\item 
+(id) - \hyperlink{class_s_s_y_authorized_task_master_b5e2843812bcad27dd3d89818cc11cef}{initWithCommandSpecs:helperToolName:installerToolName:stringsFilename:bundleIdentifier:}
+\begin{CompactList}\small\item\em Designated initializer. \item\end{CompactList}\item 
+(void) - \hyperlink{class_s_s_y_authorized_task_master_9d441761cf1e564a0c96c7ddf6f58837}{recreateAuthorization}
+\begin{CompactList}\small\item\em Destroys the instance's authorization (\_\-authRef) using AuthorizationFree() and then creates a new one using AuthorizationCreate(). \item\end{CompactList}\item 
+(OSStatus) - \hyperlink{class_s_s_y_authorized_task_master_3d824456e1398ac9d64026f4b35b183b}{removeRight:}
+\begin{CompactList}\small\item\em Removes a named right from the system's Security Server's credentials cache, using AuthorizationRightRemove(). \item\end{CompactList}\item 
+(BOOL) - \hyperlink{class_s_s_y_authorized_task_master_91bec7ba1991e2f738babb707303a7e0}{removeRightsError\_\-p:}
+\begin{CompactList}\small\item\em Removes the rights specified for all commands in the receiver's current commandSpec from the the system's Security Server's credentials cache, using AuthorizationRightRemove(). \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+(\hyperlink{class_s_s_y_authorized_task_master}{SSYAuthorizedTaskMaster} $\ast$) + \hyperlink{class_s_s_y_authorized_task_master_b9b315e13355015bbf242cf66a433160}{sharedTaskmaster}
+\begin{CompactList}\small\item\em To get and/or create a SSYAuthorizedTaskmaster singleton for an application. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+\hypertarget{class_s_s_y_authorized_task_master_8d8405b3d4524350c3496a5c828f8544}{
+AuthorizationRef \textbf{authorizationRef}}
+\label{class_s_s_y_authorized_task_master_8d8405b3d4524350c3496a5c828f8544}
+
+\item 
+\hypertarget{class_s_s_y_authorized_task_master_8f6092c71889dc014f044c26322ed509}{
+const \hyperlink{struct_b_a_s_command_spec}{BASCommandSpec} $\ast$ \textbf{commandSpecs}}
+\label{class_s_s_y_authorized_task_master_8f6092c71889dc014f044c26322ed509}
+
+\item 
+\hypertarget{class_s_s_y_authorized_task_master_cbfe6a3b5e23bff4125ea88cdb5d258d}{
+NSString $\ast$ \textbf{helperToolName}}
+\label{class_s_s_y_authorized_task_master_cbfe6a3b5e23bff4125ea88cdb5d258d}
+
+\item 
+\hypertarget{class_s_s_y_authorized_task_master_957248eb671928690fba798dc45ade00}{
+NSString $\ast$ \textbf{installerToolName}}
+\label{class_s_s_y_authorized_task_master_957248eb671928690fba798dc45ade00}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+A class for accessing a privileged Helper Tool to perform authorized tasks. 
+
+Designed to instantiated as a singleton, but you could have more than one if you really wanted to. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_s_s_y_authorized_task_master_1dc3930fb2b15f7945f8d129c055d9fa}{
+\index{SSYAuthorizedTaskMaster@{SSYAuthorizedTaskMaster}!executeRequest:response\_\-p:error\_\-p:@{executeRequest:response\_\-p:error\_\-p:}}
+\index{executeRequest:response\_\-p:error\_\-p:@{executeRequest:response\_\-p:error\_\-p:}!SSYAuthorizedTaskMaster@{SSYAuthorizedTaskMaster}}
+\subsubsection[{executeRequest:response\_\-p:error\_\-p:}]{\setlength{\rightskip}{0pt plus 5cm}- (BOOL) executeRequest: (NSDictionary$\ast$) {\em request}\/ response_p: (NSDictionary$\ast$$\ast$) {\em response\_\-p}\/ error_p: (NSError$\ast$$\ast$) {\em error\_\-p}}}
+\label{class_s_s_y_authorized_task_master_1dc3930fb2b15f7945f8d129c055d9fa}
+
+
+Executes request in the Helper Tool. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em request}]request to be executed \item[{\em response\_\-p}]Pointer to which the response NSDictionary$\ast$ will be assigned.~ response\_\-p will be autoreleased, but you must close any file descriptors that you get in it. \item[{\em error\_\-p}]Pointer to an NSError$\ast$ to which any error will be assigned \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]YES if successful, NO otherwise \end{Desc}
+\hypertarget{class_s_s_y_authorized_task_master_b5e2843812bcad27dd3d89818cc11cef}{
+\index{SSYAuthorizedTaskMaster@{SSYAuthorizedTaskMaster}!initWithCommandSpecs:helperToolName:installerToolName:stringsFilename:bundleIdentifier:@{initWithCommandSpecs:helperToolName:installerToolName:stringsFilename:bundleIdentifier:}}
+\index{initWithCommandSpecs:helperToolName:installerToolName:stringsFilename:bundleIdentifier:@{initWithCommandSpecs:helperToolName:installerToolName:stringsFilename:bundleIdentifier:}!SSYAuthorizedTaskMaster@{SSYAuthorizedTaskMaster}}
+\subsubsection[{initWithCommandSpecs:helperToolName:installerToolName:stringsFilename:bundleIdentifier:}]{\setlength{\rightskip}{0pt plus 5cm}- (id) initWithCommandSpecs: (const {\bf BASCommandSpec} $\ast$) {\em commandSpecs}\/ helperToolName: (NSString $\ast$) {\em helperToolName}\/ installerToolName: (NSString $\ast$) {\em installerToolName}\/ stringsFilename: (NSString$\ast$) {\em stringsFilename}\/ bundleIdentifier: (NSString$\ast$) {\em bundleIdentifier}}}
+\label{class_s_s_y_authorized_task_master_b5e2843812bcad27dd3d89818cc11cef}
+
+
+Designated initializer. 
+
+An instance of SSYAuthorizedTaskmaster needs to know what its commands are, what additional prompt if any to present in the authentication dialog, and the name of the tool that executes the tasks. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em commandSpecs}]a C array of \hyperlink{struct_b_a_s_command_spec}{BASCommandSpec} structs, specifying the commands that the receiver will implement.~ Because we can't retain a C array, we require it to be const we insure that it won't go away.~ If this is NULL, commandSpecs will be set to a an array consisting of a single element of NULL components, which won't be very useful.~ To be useful, this parameter must not be NULL. \item[{\em helperToolName}]The name of the authorized helper tool which must be found in Contents/MacOS.~ If you pass nil, defaults to @\char`\"{}AuthorizedTaskHelperTool\char`\"{}. \item[{\em installerToolName}]The name of the tool used to install the helper tool which must be found in Contents/MacOS.~ If you pass nil, defaults to @\char`\"{}AuthorizedTaskHelperToolInstaller\char`\"{}. \item[{\em stringsFilename}]The name of a .strings file containing the prompt(s) specified in the rightDescriptionKey field(s) of the \hyperlink{struct_b_a_s_command_spec}{BASCommandSpec} structs in commandSpecs.~ If nil, defaults to the usual \char`\"{}Localizable\char`\"{}.~ This argument is only used for prepending a string to the \char`\"{} MyApp.app requires that you type your/administrator password\char`\"{} prompt in the authentication dialogs. \item[{\em bundleIdentifier}]The bundle identifier of the bundle which contains the stringsFilename.strings file in its Resources.~ If nil, defaults to \mbox{[}\mbox{[}NSBundle mainBundle\mbox{]} bundleIdentifier\mbox{]}.~ This argument is only used for prepending a string to the \char`\"{} MyApp.app requires that you type your/administrator password\char`\"{} prompt in the authentication dialogs.~ It may be nil. \end{description}
+\end{Desc}
+\hypertarget{class_s_s_y_authorized_task_master_9d441761cf1e564a0c96c7ddf6f58837}{
+\index{SSYAuthorizedTaskMaster@{SSYAuthorizedTaskMaster}!recreateAuthorization@{recreateAuthorization}}
+\index{recreateAuthorization@{recreateAuthorization}!SSYAuthorizedTaskMaster@{SSYAuthorizedTaskMaster}}
+\subsubsection[{recreateAuthorization}]{\setlength{\rightskip}{0pt plus 5cm}- (void) recreateAuthorization }}
+\label{class_s_s_y_authorized_task_master_9d441761cf1e564a0c96c7ddf6f58837}
+
+
+Destroys the instance's authorization (\_\-authRef) using AuthorizationFree() and then creates a new one using AuthorizationCreate(). 
+
+A utility method, useful in debugging \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em rightName}]The name of the right to be removed \end{description}
+\end{Desc}
+\hypertarget{class_s_s_y_authorized_task_master_3d824456e1398ac9d64026f4b35b183b}{
+\index{SSYAuthorizedTaskMaster@{SSYAuthorizedTaskMaster}!removeRight:@{removeRight:}}
+\index{removeRight:@{removeRight:}!SSYAuthorizedTaskMaster@{SSYAuthorizedTaskMaster}}
+\subsubsection[{removeRight:}]{\setlength{\rightskip}{0pt plus 5cm}- (OSStatus) removeRight: (const char$\ast$) {\em rightName}}}
+\label{class_s_s_y_authorized_task_master_3d824456e1398ac9d64026f4b35b183b}
+
+
+Removes a named right from the system's Security Server's credentials cache, using AuthorizationRightRemove(). 
+
+A utility method, useful in debugging \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em rightName}]The name of the right to be removed \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]The valued returned by AuthorizationRightRemove(), or paramErr if rightName is NULL. \end{Desc}
+\hypertarget{class_s_s_y_authorized_task_master_91bec7ba1991e2f738babb707303a7e0}{
+\index{SSYAuthorizedTaskMaster@{SSYAuthorizedTaskMaster}!removeRightsError\_\-p:@{removeRightsError\_\-p:}}
+\index{removeRightsError\_\-p:@{removeRightsError\_\-p:}!SSYAuthorizedTaskMaster@{SSYAuthorizedTaskMaster}}
+\subsubsection[{removeRightsError\_\-p:}]{\setlength{\rightskip}{0pt plus 5cm}- (BOOL) removeRightsError\_\-p: (NSError$\ast$$\ast$) {\em error\_\-p}}}
+\label{class_s_s_y_authorized_task_master_91bec7ba1991e2f738babb707303a7e0}
+
+
+Removes the rights specified for all commands in the receiver's current commandSpec from the the system's Security Server's credentials cache, using AuthorizationRightRemove(). 
+
+A utility method, useful in debugging.~ \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em error\_\-p}]On return, if an error occurred, points to an error giving the cause.~ If you are not interested in the error, you may pass NULL. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]YES upon success, otherwise NO. \end{Desc}
+\hypertarget{class_s_s_y_authorized_task_master_b9b315e13355015bbf242cf66a433160}{
+\index{SSYAuthorizedTaskMaster@{SSYAuthorizedTaskMaster}!sharedTaskmaster@{sharedTaskmaster}}
+\index{sharedTaskmaster@{sharedTaskmaster}!SSYAuthorizedTaskMaster@{SSYAuthorizedTaskMaster}}
+\subsubsection[{sharedTaskmaster}]{\setlength{\rightskip}{0pt plus 5cm}+ ({\bf SSYAuthorizedTaskMaster} $\ast$) sharedTaskmaster }}
+\label{class_s_s_y_authorized_task_master_b9b315e13355015bbf242cf66a433160}
+
+
+To get and/or create a SSYAuthorizedTaskmaster singleton for an application. 
+
+Recommended unless you have $>$ 1 authorized helper tool in an application.~ The sharedTaskmaster singleton is initialized with value(s) returned by \mbox{[}NSApp delegate\mbox{]} if it responds to any of the optional methods in the \hyperlink{protocol_s_s_y_authorized_helpee-p}{SSYAuthorizedHelpee} protocol.~ Otherwise, the default values given in the designated initializer documentation are used. \begin{Desc}
+\item[Returns:]The SSYAuthorizedTaskmaster singleton. \end{Desc}
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+Documents/Programming/Projects/AuthorizedTasksInCocoa/SSYAuthorizedTaskmaster+CopyFiles.m\item 
+Documents/Programming/Projects/AuthorizedTasksInCocoa/SSYAuthorizedTaskmaster.h\item 
+Documents/Programming/Projects/AuthorizedTasksInCocoa/SSYAuthorizedTaskmaster.m\end{CompactItemize}

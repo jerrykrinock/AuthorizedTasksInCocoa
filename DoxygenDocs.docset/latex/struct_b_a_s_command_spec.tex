@@ -1,0 +1,96 @@
+\hypertarget{struct_b_a_s_command_spec}{
+\section{BASCommandSpec Struct Reference}
+\label{struct_b_a_s_command_spec}\index{BASCommandSpec@{BASCommandSpec}}
+}
+{\tt \#include $<$BetterAuthorizationSampleLib.h$>$}
+
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+\hypertarget{struct_b_a_s_command_spec_979075c089fd8906f2ae3031d16ceec5}{
+const char $\ast$ \textbf{commandName}}
+\label{struct_b_a_s_command_spec_979075c089fd8906f2ae3031d16ceec5}
+
+\item 
+\hypertarget{struct_b_a_s_command_spec_a7a8c093ae494cdeb2af57614c6d73d5}{
+const char $\ast$ \textbf{rightDefaultRule}}
+\label{struct_b_a_s_command_spec_a7a8c093ae494cdeb2af57614c6d73d5}
+
+\item 
+\hypertarget{struct_b_a_s_command_spec_0735b9e5ca51435ede02cf36899a5c7e}{
+const char $\ast$ \textbf{rightDescriptionKey}}
+\label{struct_b_a_s_command_spec_0735b9e5ca51435ede02cf36899a5c7e}
+
+\item 
+\hypertarget{struct_b_a_s_command_spec_539245412d7ca050e56720daeaede31e}{
+const char $\ast$ \textbf{rightName}}
+\label{struct_b_a_s_command_spec_539245412d7ca050e56720daeaede31e}
+
+\item 
+\hypertarget{struct_b_a_s_command_spec_cc26a480c6590a31ac0fdbff6c999254}{
+const void $\ast$ \textbf{userData}}
+\label{struct_b_a_s_command_spec_cc26a480c6590a31ac0fdbff6c999254}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+BetterAuthorizationSampleLib
+
+Reusable library for creating helper tools that perform privileged operations on behalf of your application.
+
+BetterAuthorizationSampleLib allows you to perform privileged operations in a helper tool. In this model, your application runs with standard privileges and, when it needs to do a privileged operation, it makes a request to the helper tool. The helper tool uses Authorization Services to ensure that the user is authorized to perform that operation.
+
+BetterAuthorizationSampleLib takes care of all of the mechanics of installing the helper tool and communicating with it. Specifically, it has routines that your application can call to:
+
+1. send requests to a helper tool (BASExecuteRequestInHelperTool)
+
+2. install the helper tool if it's not installed, or fix an installation if it's broken (BASDiagnoseFailure and BASFixFailure)
+
+BetterAuthorizationSampleLib also helps you implement the helper tool. Specifically, you call the routine BASHelperToolMain in the main entry point for your helper tool, passing it an array of command callbacks (of type BASCommandProc). BASHelperToolMain will take care of all the details of communication with the application and only call your callback to execute the actual command.
+
+A command consists of request and response CFDictionaries (or, equivalently, NSDictionaries). BetterAuthorizationSampleLib defines three special keys for these dictionaries:
+
+1. kBASCommandKey -- In the request dictionary, this is the name of the command. Its value is a string that uniquely identifies the command within your program.
+
+2. kBASErrorKey -- In the response dictionary, this is the error result for the request. Its value is an OSStatus-style error code.
+
+3. kBASDescriptorArrayKey -- In the response dictionary, if present, this is an array of file descriptors being returned from the helper tool.
+
+You can use any other key to represent addition parameters (or return values) for the command. The only constraints that BetterAuthorizationSampleLib applies to these extra parameters is that they must be serialisable as a CFPropertyList.
+
+BetterAuthorizationSampleLib requires that you tell it about the list of commands that you support. Each command is represented by a command specification (\hyperlink{struct_b_a_s_command_spec}{BASCommandSpec}). The command specification includes the following information:
+
+1. The name of the command. This is the same as the kBASCommandKey value in the request dictionary.
+
+2. The authorization right associated with the command. BetterAuthorizationSampleLib uses this to ensure that the user is authorized to use the command before it calls your command callback in the privileged helper tool.
+
+3. Information to create the command's authorization right specification in the policy database. The is used by the BASSetDefaultRules function.
+
+Finally, BetterAuthorizationSampleLib includes a number of utilities routines to help wrangle error codes (BASErrnoToOSStatus, BASOSStatusToErrno, and BASGetErrorFromResponse) and file descriptors (BASCloseDescriptorArray).
+
+Describes a privileged operation to BetterAuthorizationSampleLib.
+
+Both the application and the tool must tell BetterAuthorizationSampleLib about the operations (that is, commands) that they support. They do this by passing in an array of \hyperlink{struct_b_a_s_command_spec}{BASCommandSpec} structures. Each element describes one command. The array is terminated by a command whose commandName field is NULL.
+
+In general the application and tool should use the same array definition. However, there are cases where these might be out of sync. For example, if you have an older version of the application talking to a newer version of the tool, the tool might know about more commands than the application (and thus provide a longer array), and that's OK.
+
+commandName A identifier for this command. This can be any string that is unique within the context of your programs. A NULL value in this field terminates the array.
+
+The length of the command name must not be greater than 1024 UTF-16 values.
+
+rightName This is the name of the authorization right associated with the command. This can be NULL if you don't want any right associated with the command. If it's not NULL, BetterAuthorizationSampleLib will acquire that right before allowing the command to execute.
+
+rightDefaultRule This is the name of an authorization rule that should be used in the default right specification for the right. To see a full list of these rules, look at the \char`\"{}rules\char`\"{} dictionary within the policy database (currently \char`\"{}/etc/authorization\char`\"{}). Common values include \char`\"{}default\char`\"{} (which requires that the user hold credentials that authenticate them as an admin user) and \char`\"{}allow\char`\"{} (which will let anyone acquire the right).
+
+This must be NULL if (and only if) rightName is NULL.
+
+rightDescriptionKey This is a key used to form a custom prompt for the right. The value of this string should be a key into a .strings file whose name you supply to BASSetDefaultRules. When BetterAuthorizationSampleLib creates the right specification, it uses this key to get all of the localised prompt strings for the right.
+
+This must be NULL if rightName is NULL. Otherwise, this may be NULL if you don't want a custom prompt for your right.
+
+userData This field is is for the benefit of the client; BetterAuthorizationSampleLib does not use it in any way. 
+
+The documentation for this struct was generated from the following file:\begin{CompactItemize}
+\item 
+Documents/Programming/Projects/AuthorizedTasksInCocoa/BetterAuthorizationSampleLib.h\end{CompactItemize}

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+  <Token>
+    <TokenIdentifier>
+      <Name>SSYAuthorizedTaskMaster</Name>
+      <APILanguage>occ</APILanguage>
+      <Type>cl</Type>
+      <Scope></Scope>
+    </TokenIdentifier>
+    <Path>class_s_s_y_authorized_task_master.html</Path>
+    <Abstract>A class for accessing a privileged Helper Tool to perform authorized tasks.</Abstract>
+    <DeclaredIn>SSYAuthorizedTaskmaster.h</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>executeRequest:response_p:error_p:</Name>
+      <APILanguage>occ</APILanguage>
+      <Type>clm</Type>
+      <Scope>SSYAuthorizedTaskMaster</Scope>
+    </TokenIdentifier>
+    <Path>class_s_s_y_authorized_task_master.html</Path>
+    <Anchor>1dc3930fb2b15f7945f8d129c055d9fa</Anchor>
+    <Abstract>Executes request in the Helper Tool.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>initWithCommandSpecs:helperToolName:installerToolName:stringsFilename:bundleIdentifier:</Name>
+      <APILanguage>occ</APILanguage>
+      <Type>clm</Type>
+      <Scope>SSYAuthorizedTaskMaster</Scope>
+    </TokenIdentifier>
+    <Path>class_s_s_y_authorized_task_master.html</Path>
+    <Anchor>b5e2843812bcad27dd3d89818cc11cef</Anchor>
+    <Abstract>Designated initializer.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>recreateAuthorization</Name>
+      <APILanguage>occ</APILanguage>
+      <Type>clm</Type>
+      <Scope>SSYAuthorizedTaskMaster</Scope>
+    </TokenIdentifier>
+    <Path>class_s_s_y_authorized_task_master.html</Path>
+    <Anchor>9d441761cf1e564a0c96c7ddf6f58837</Anchor>
+    <Abstract>Destroys the instance&#39;s authorization (_authRef) using AuthorizationFree() and...</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>removeRight:</Name>
+      <APILanguage>occ</APILanguage>
+      <Type>clm</Type>
+      <Scope>SSYAuthorizedTaskMaster</Scope>
+    </TokenIdentifier>
+    <Path>class_s_s_y_authorized_task_master.html</Path>
+    <Anchor>3d824456e1398ac9d64026f4b35b183b</Anchor>
+    <Abstract>Removes a named right from the system&#39;s Security Server&#39;s credentials cache...</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>removeRightsError_p:</Name>
+      <APILanguage>occ</APILanguage>
+      <Type>clm</Type>
+      <Scope>SSYAuthorizedTaskMaster</Scope>
+    </TokenIdentifier>
+    <Path>class_s_s_y_authorized_task_master.html</Path>
+    <Anchor>91bec7ba1991e2f738babb707303a7e0</Anchor>
+    <Abstract>Removes the rights specified for all commands in the receiver&#39;s current commandSpec...</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>sharedTaskmaster</Name>
+      <APILanguage>occ</APILanguage>
+      <Type>clm</Type>
+      <Scope>SSYAuthorizedTaskMaster</Scope>
+    </TokenIdentifier>
+    <Path>class_s_s_y_authorized_task_master.html</Path>
+    <Anchor>b9b315e13355015bbf242cf66a433160</Anchor>
+    <Abstract>To get and/or create a SSYAuthorizedTaskmaster singleton for an application.</Abstract>
+  </Token>
+</Tokens>

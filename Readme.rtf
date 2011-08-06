@@ -1,0 +1,307 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf350
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Verdana;\f2\fnil\fcharset0 LucidaGrande;
+\f3\fnil\fcharset0 Monaco;\f4\fmodern\fcharset0 Courier-Oblique;}
+{\colortbl;\red255\green255\blue255;\red41\green111\blue160;\red92\green38\blue153;\red100\green56\blue32;
+\red38\green71\blue75;}
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 \ul \ulc0 \
+PURPOSE\ulnone \
+\pard\pardeftab720\ql\qnatural
+
+\f1 \cf0 \
+
+\f0 If an application needs to perform an task for which its user does not have sufficient privileges and needs authorization, I call this task is called a "Authorized Task". \'a0(BookMacster uses this code for one task, which is to allow non-admin users to write their License Information to the "anyUser" /System/Preferences.) \'a0Apple's developer documentation has a lot to say about how applications should perform authorized tasks while maintaining system security. \'a0Prior to late 2007, the recommended example of how to implement these recommendations was provided in Apple's MoreAuthSample sample code. \'a0\
+\
+MoreAuthSample was replaced by BetterAuthorizationSample [1] in late 2007. \'a0I was hoping that it would be easier to incorporate into a project than MoreAuthSample. \'a0But I still found a steep learning curve, partly due to the partitioning that must be done to maintain security up to Apple's high standards, but largely due to idioms in the top-layer demo app which are "un-Cocoa-like". \'a0I started keeping a list of things I didn't like, but after a dozen items, with still alot to learn, I decided to improve upon it instead of publishing a rant. \'a0This project is the result.\
+\
+I only touched the Demo App and the Helper Tool, which you have touch anyhow. \'a0This project uses the three "Reuseable Library" files from Apple's BetterAuthorizationSample without any modifications, so that if Apple updates these files you can just plug in the new versions. \'a0There are a few things in the Reuseable Library that I'd like to change too, but so far I've resisted that temptation. \'a0The Helper Tool has been partitioned into files systematically so that you can build your own Helper Tool Target to do just the tasks you need by including required files, instead of hacking the demo. \'a0Also, the re-useable code in the demo app has been partitioned off into a framework that you simply add to your application. \'a0 (As usual, to add a framework, you add to linked files, add dependency, add to Copy Files.)\
+\
+AuthorizedTasksInCocoa does all the same things as the demo app in BetterAuthorizationSample, with one exception. \'a0It does not present an NSAlert panel before installing the "BAS" helper tool. \'a0I don't think there is any need for that, because there is no reason why the user would not want it installed, other than the fact that they don't know what "BAS" means and get mad at your app for asking the question. \'a0So I omitted this code from the framework. \'a0The installer gets installed silently when needed. \'a0Note also that MoreAuthSample installed its helper tool silently too.\
+\
+\pard\pardeftab720\ql\qnatural
+
+\b \cf0 Consider this before proceeding.
+\b0 \'a0\'a0During 2009, {\field{\*\fldinst{HYPERLINK "http://lists.apple.com/archives/Cocoa-dev/2009/Aug/msg01425.html"}}{\fldrslt \cf2 it was stated that}} instead of making your own privileged helper tool as described herein, you could ask to the Finder to do privileged tasks using AppleEvent.  The Finder will ask the user its password if needed and will take care of the hard part for you.  Now, actually, if that were true, you could do anything.  Example: Tell Finder to move a file out of an inaccessible directory to an accessible Temporary directory, modify it using regular non-privileged methods, then tell Finder to move it back.  But it didn't work for me.  Finder just failed with a generic error.  Possibly, this is because Apple has tightened security in a recent Mac OS X dot release, although it doesn't make sense since authentication is required.  Anyhow, since using AuthorizedTasksInCocoa is alot of work, you should at least try using Finder first.
+\f1 \
+\
+\pard\pardeftab720\ql\qnatural
+
+\f0 \cf0 But if you really need to do it, and have been head-scratching over BetterAuthorizationSample, you might like this better. \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+\cf0 \
+\
+\ul SYSTEM REQUIREMENT\ulnone \
+\
+Like BetterAuthorizationSample, projects incorporating AuthorizedTasksInCocoa must be run in Mac OS 10.4.6 or later.\
+\
+\ul BUILDING YOUR OWN 
+\i APPLICATION CASE
+\i0 \ulnone \
+\
+Different applications, such as yours, will need different functions to be performed by their authorized helper tool.  I call these different 
+\i Application Cases
+\i0 , and have so named a group in the project.  Look inside there and you'll see two examples.  The 
+\i Demo
+\i0  Application Case performs the five tasks shown in the Demo App window.  (This particular Application Case is special in that it also includes a complete application.)  The 
+\i SetAnyUserPrefs
+\i0  and 
+\i Typicapp
+\i0  Application Cases are cases that I prepared for my application.  The first one does the single task of writing key/value pairs to /Library/System/Preferences.  
+\i Typicapp
+\i0  is a case for a "typical application".  It does the writing key/value pairs to /Library/System/Preferences, and in additional can copy files to or from locations that require elevated privileges.\
+\
+An Application Case consists of a Helper Tool, a category which you'll add to the SSYAuthorizedTaskmaster class, and several common files defining your tasks.\
+\
+The remainder of this document gives the steps to create your own Application Case and get it working in your application.\
+\
+Before getting started, realize that, if your application already contains a Helper Tool based on BetterAuthorizationSample, and you need to add additional task(s), it is usually preferable to add the new task to an existing helper tool rather than create a new one.  That's why I call it an 
+\i Application
+\i0  Case.  One tool can perform whatever privileged tasks an application requires.\
+\
+\'95 Make up a name for your Application Case.  I suggest that you reflect either the name of the main application in which your Application Case will be used, or the name of the function(s) that it will perform, whatever makes more sense in your situation, considering anticipated re-use.  In this document we'll call it 
+\i MyCase
+\i0 .\
+\
+\'95 Create a new empty sub-Group under Application Cases and name it MyCase.\
+\
+\'95 In Targets, select AuthorizedTaskHelperTool_Demo, right-click and Duplicate it.\
+\
+\'95 Immediately (before inspecting the new target), rename the duplicated "AuthorizedTasksHelperTool_Demo copy" to  AuthorizedTaskHelperTool_MyCase.  Because the "Product Name" setting in that target is set to $(TARGET_NAME), your new target will produce an executable with this new name.\
+\
+\'95 Make sure that this worked.  Now, inspect your new target.  In the Build Settings pane, look at Product Name and make sure that $(TARGET_NAME) resolved to the new name.  If not, cut and paste it back in and then it should work.\
+\
+\'95 Decide which existing Application Case you want to clone in order to make your new Application Case.  If you intend to add to an existing Application Case, consider cloning the existing Application Case under a new name -- keep both the existing and new until you've worked all the bugs out of the new case.\
+\
+\'95 In Finder, duplicate the three files AuthorizedTasks_XXXX.m, AuthorizedTasks_XXXX.h and CommandProcs_XXXX.c, where XXXX is the name of the Application Case you decided to clone in the previous step. \
+\
+\'95 Drag the three copies from Finder into Xcode's Groups & Files 
+\f2 \uc0\u9658 
+\f0  Application Cases 
+\f2 \uc0\u9658 
+\f0  MyCase.  When asked which target(s) to add them to, un-check whatever is checked by default and check only your new target, AuthorizedTaskHelperTool_MyCase.\
+\
+\'95 In Xcode, rename these three files, changing the end of each copied filename from _Demo to _MyCase.\
+\
+\'95 Examine the group Helper Tool 
+\f2 \uc0\u9658 
+\f0  Tasks and note that each file contains only one function (and possibly some helpers for it), and thus performs one task, after which the file is named.  You may clone some these tasks, and/or you may be adding your own such files to suit the needs of your Application Case.  Just keep that in mind for now.\
+\
+\'95 Edit AuthorizedTasks_MyCase.h.  Decide on the tasks you need and in what order they will appear.  The order is arbitrary but you must be consistent throughout this project.  In the section 
+\i Constants for Each of your Tasks
+\i0 , remove some of the existing 5 lines and/or add new lines as needed to reflect your tasks.  In the "right name" subsection, don't forget to change the "yourCompany" to "YourRealCompany", etc.  In the section 
+\i Optional Keys used to Pass Data to and from the Helper Tool
+\i0 , add/delete whatever you need/don't need.\
+\
+\'95 Edit AuthorizedTasks_MyCase.m.  Change the #include at the top from AuthorizedTasks_Demo.h to AuthorizedTasks_MyCase.h.\
+\
+\'95 Continuing in AuthorizedTasks_MyCase.m, in the definition of the array kCommandSpecs, remove some of the existing 5 entries and/or add new entries as needed to reflect your tasks.  Use any new commandName and rightName you defined in the header file.  Each entry is itself a BASCommandSpec.  To get a precise definition of each field, 
+\f2 \uc0\u8984 
+\f0 -doubleclick the token BASCommandSpec and choose struct BASCommandSpec to read the HeaderDoc-style comments in BetterAuthorizationSampleLib.h.  Here are some additional tips:\
+      \'95 Regarding the reference to /etc/authorization, note that this is a plist file which you can open in your favorite Property List editor such as PlistEdit Pro.\
+      \'95 If you choose to enter a rightDescriptionKey, note that the string which you enter into your .strings file should end in an two space characters, "  ", because the system will append " MyApp.app requires that you type your password." to your string.  This appendage is a security requirement in Mac OS X and cannot be avoided.\
+      \'95 Do not delete the \{NULL,NULL,NULL,NULL,NULL\} element at the end of the array.\
+\
+\'95 Edit CommandProcs_MyCase.c.  Change the #include at the top from AuthorizedTasks_Demo.h to AuthorizedTasks_MyCase.h.\
+\
+\'95 Continuing in CommandProcs_MyCase.c, edit the kCommandProcs array to have the "command proc(s)"  you declared in  in AuthorizedTasks_MyCase.h, again adding and deleting as required.\
+\
+\'95 For each new task which you added\
+\
+      \'95 In Finder, duplicate one of the HelperToolTaskXXXXX.c files.\
+      \'95 Add the file to the project in the group Helper Tool 
+\f2 \uc0\u9658 
+\f0  Tasks.  When you are asked to check which target(s) to add the new file to, check only your new AuthorizedTaskHelperTool_MyCase target.\
+      \'95 In Xcode, rename the file to some name indicating the task at the end.\
+      \'95 Edit the file to implement one of your tasks in a function.  The name of your function should be one of the "command procs" you defined in AuthorizedTasks_MyCase.h.  Your function must take the arguments #defined as COMMAND_PROC_ARGUMENTS.  You may not use any Objective-C or Cocoa in this function but you may use CoreFoundation.  For work with CFArrays especially, check out the functions in the #included MoreCFQ.h which take some of the pain out of CoreFoundation.  You may return results by adding serializable objects to the 'response' dictionary, using CFDictionaryAddValue().\
+\
+\'95 In Xcode's main menu 
+\f2 \uc0\u9658 
+\f0  Project, Set Active Target to your new AuthorizedTaskHelperTool_MyCase target.\
+\
+\'95 Right-click the Groups & Files column heading and switch on the "Target Membership" column.  This appears as a checkbox at the far left.\
+\
+\'95 In the Application Cases 
+\f2 \uc0\u9658 
+\f0  Demo group, un-check AuthorizedTasks_Demo.m and CommandProcs_Demo.c\
+\
+\'95 In the Helper Tool 
+\f2 \uc0\u9658 
+\f0  Tasks group, un-check all of the HelperToolTask files which implement tasks not used in your Application Case.\
+\
+\'95 Build the active target and fix any errors or warnings.  (You can't run it yet because it requires serialized arguments.)\
+\
+\'95 Now, you're going to make a category on the SSYAuthorizedTaskMaster which you can use in your app to run your authorized tasks via the SSYAuthorizedTaskMaster framework.\
+\
+\'95 In Finder, duplicate the two files SSYAuthorizedTaskMaster+DemoTasks.m/.h.  Consider if, depending on your re-use plans, you may want to move these two copies into the the project folder of your main app which needs the authorized task capability.  Do so if desired.\
+\
+\'95 In Finder, rename the two files to SSYAuthorizedTaskMaster+MyCase.m and .h.  (Alternatively, instead of +MyCase, you may prefer to make separate categories for each task in MyCase, but we won't describe that variation here.)\
+\
+\'95 In Xcode, open your main app which needs the authorized task capability.\
+\
+\'95 Drag the two copies from Finder into your main app project, adding to target(s) as needed.\
+\
+\'95 Edit the #import declaration in SSYAuthorizedTaskMaster+MyCase.m to #import the new header filename.\
+\
+\'95 In SSYAuthorizedTaskMaster+MyCase.m, remove implementations for tasks you don't need.\
+\
+\'95 For each task, in SSYAuthorizedTaskMaster+MyCase.m, duplicate one of the Obj-C implementations at the bottom and modify it to which wrap one of your tasks.  The error_p argument is optional but is recommended by NSError fans.  For errors that are supposed to ^never^ happen, you may want to use assert() as in three implementations at the top which I copied from Apple's BetterAuthorizationSample.  Another trick from BetterAuthorizationSample is the @kCompilerConstants you see in these implementations.  Those are not perl arrays.  They are double-quoted tokens which prefixed with @ to make a NSString constants .  The reason they do this is that you can use the same token in CFSTR() to make a CFStringRef constant.\
+\
+\'95 Edit the declarations in SSYAuthorizedTaskMaster+MyCase.h to match the implementations you've just edited.\
+\
+\'95 Add the framework SSYAuthorizedTaskmaster.framework to your project.  Per Xcode documentation, there are three sub-steps required to do this.  (Also you must direct all of your Build products in a Customized Location.  There are other good reasons to do this too.)\
+\
+      \'95 Tell your app project to link SSYAuthorizedTaskmaster.framework to your app target.  To do this, drag the framework Product from the "Products" at the the bottom of "Groups & Files" in this project to the "Groups & Files" of your app project, and check your app target in the sheet that appears.\
+\
+      \'95 Note that this framework is designed to be shipped in your app's package in the Contents/Frameworks directory and run from there.  That is, in its Target's Build Settings, the "Installation Directory" is set to "@executable_path/../Frameworks".   Therefore, you must tell Xcode to copy this framework to Contents/Frameworks when it packages your project.  You can do this by creating a new Copy Files Build Phase in your app target, with the Destination set to "Frameworks" (unless you already have such a Build Phase) and dragging the framework product into it.\
+\
+      \'95 Drag this project into your app project's Groups and Files.  Then open the Inspector for each applicable Target in your app project and  in the General tab add the SSYAuthorizedTaskmaster.framework target as a dependency.\
+\
+\'95 In your app's -applicationDidFinishLaunching, or elsewhere before authorized tasks are invoked, configure the sharedWorker with code such as this:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f3 \cf0 	[[SSYAuthorizedTaskMaster sharedWorker] configureWithCommandSpecs:kCommandSpecs\
+	   helperToolName:@"AuthorizedTaskHelperTool_MyCase"\
+	installerToolName:nil    // Use default\
+	  stringsFilename:nil    // Use default\
+	 bundleIdentifier:nil] ; // Use default\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0 \cf0 \
+It is OK if the above message gets sent multiple times during the running of an application.
+\f3 \
+
+\f0 \
+\'95 To supply the required references, add this to the top of the file where you added that:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f3 \cf0    #import "SSYAuthorizedTaskmaster+MyCase.h"\
+   extern const BASCommandSpec kCommandSpecs[] ;\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0 \cf0 \
+\'95 To get the definition of const kCommandSpecs[] compiled, add AuthorizedTasks_MyCase.h and .m to your main application app project and target by dragging from Finder into Groups & Files.  Note: The .c #includes BetterAuthorizationSampleLib.h, however this is in the same directory as AuthorizedTasks_MyCase.c so it should automatically be in your header search paths.\
+\
+\'95 By the way, there is a reason why AuthorizedTasks_MyCase.m is given extension .m even though it does not contain any Objective-C.  Depending on your app's prefix file, Xcode may decide from the presence of a single .c file in the project to precompile without Objective-C.  If that happens, all hell will break loose when you hit 'Build', beginning with an error like this:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\li640\fi-640\ql\qnatural\pardirnatural
+
+\f4\i\fs22 \cf0    In file included from /Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h:12, syntax error before '@" token\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\i0\fs24 \cf0 If you don't like naming a C file .m, there is another workaround.  In Groups & Files, select AuthorizedTasks_MyCase.c, Get Info, and in the Info window change the File Type to sourcecode.c.objc. \
+\
+\'95 In each source file where you want to invoke your authorized method,\
+\
+      \'95 Add code such as this:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f3 \cf0       NSError* error = nil ;\
+	  BOOL ok = [[SSYAuthorizedTaskMaster sharedWorker] yourMethodArg1:arg1\
+	  			 arg2:arg2\
+  				  ...\
+			   error_p:&error] ;\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0 \cf0 \
+      \'95 And then, to make the above code work, in any file where you did that, #import these two headers:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f3 \cf0       #import "AuthorizedTaskmaster+MyCase.h"\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0 \cf0 \
+      \'95 Add code to log or display the 
+\f3 [error localizedDescription]
+\f0  returned there.\
+\
+\'95 Build your application and fix any errors or warnings.\
+\
+\'95 Run your application so as to invoke one of the authorized tasks.  The authentication dialog should appear.  (But keep your pants on because it's not going to work just yet.)\
+\
+\'95 Click on the "Details" disclosure triangle and verify that the "Right" being requested is what you entered in AuthorizedTasks_MyCase.h.\
+\
+\'95 After entering your password this error message should be displayed or logged:  "AuthorizedTaskHelperTool_MyCase is not installed at all.  Tried to reinstall it using AuthorizedTaskHelperToolInstaller but that failed too." \
+\
+The error occured because you haven't yet added either tool to your package yet.  Congratulations...You've just tested an error-handling capability!\
+\
+\'95 In your main app target, if you do not have a Copy Files Build Phase with Destination set to Executables (copies files to the MacOS directory), create one. \
+\
+\'95 In the AuthorizedTasksInCocoa project 
+\f2 \uc0\u9658 
+\f0  Groups & Files 
+\f2 \uc0\u9658 
+\f0  Products, grab the two products AuthorizedTaskHelperToolInstaller and AuthorizedTaskHelperTool_MyCase, drag them into your main app project and drop them into Groups & Files 
+\f2 \uc0\u9658 
+\f0  Products or other location of your choice.  Then, grab them from there, drag and drop into the Copy Files Build Phase with Destination set to Executables.\
+\
+\'95 Open the Inspector for each applicable Target in your app project and in the General tab add AuthorizedTaskHelperTool_MyCase as a dependency.\
+\
+\'95 Build your app target again.\
+\
+\'95 Run your application so as to invoke one of the authorized tasks again.  This time it should work.\
+\
+\'95 Examine output in Console.app to see the messages written by the BetterAuthorizationSample library code, plus the output from any asl_log() statements in your helper task function.\
+ \
+\'95 ToolUninstaller.sh:  Make a New Friend\
+\
+Because running your app installs several files related to the AuthorizedTaskHelperTool, these must be cleaned out after rebuilding a new rev, or your test may run the old version of which will be very confusing!  The "Clean" in Xcode does not know how to do this.  Therefore, during fix/build/test cycles of your Helper tool, before testing, you'll need to run the script ToolInstaller.sh.  Unfortunately, you cannot paste the text of this script into Xcode's User Scripts Menu and run it from there, because the sudo calls will give a password prompt which Xcode's script runner will ignore.  I tried to set permissions on ToolInstaller.sh so that it is "setuid root" (set to run with user as owner, owner set to root), by making a copy of it and entering these commands:\
+   sudo chown root/admin ToolUninstaller.sh\
+   sudo chmod 4755 ToolUninstaller.sh\
+but that didn't seem to work for some reason and I gave up on it.\
+\
+Also, the first line in this script, sudo launchctl unload -w /Library/LaunchDaemons/com.yourCompany.AuthorizedTasksInCocoa.plist will stop launchd, should you ever find your Console full of messages indicating that it is repeatedly trying run a broken tool every 10-20 seconds.\
+\
+\'95 If you need to troubleshoot your Helper tool, you'll need to change one thing in ToolUninstaller.sh.  Doubleclick the script in Xcode to edit it.\
+\
+\'95 Change the first line in this script from:\
+     yourCompany.AuthorizedTasksInCocoa\
+to:\
+     com.yourRealCompanyCompanyName.yourRealAppName \
+\
+where\
+   yourRealCompanyName is the name that you used in the rightNames in AuthorizedTasks_MyCase.h\
+   yourRealAppName is the name of the app that will use the tool, because the system\
+      will append this name to the files and rights that it writes.\
+\
+\'95 During tool debugging, to run the script from Xcode, right-click on it and click "Open With Finder".\
+\
+\'95 During tool debugging, also be aware that when you get a credential it may hang around for 5 minutes or so, so you may not always see the authentication dialog when you expect it.\
+\
+The Helper Tool can be fairly difficult to follow if you need to do deep troubleshooting.  Basically, it's main() function invokes BASHelperToolMain, which sets up a connection and then invokes HandleConnection().  Then, fairly well-obfuscated, HandleConnection() calls your "command proc", in BetterAuthorizationSampleLib.c, at line 1176:\
+    
+\f3\fs20 \CocoaLigature0 commandProcStatus = commandProcs[commandIndex](auth, commands[commandIndex].\cf3 userData\cf0 , request, response, asl, aslMsg);
+\f0\fs24 \CocoaLigature1 \
+Recall that the 
+\f3\fs20 \cf4 \CocoaLigature0 COMMAND_PROC_ARGUMENTS 
+\f0\fs24 \cf0 \CocoaLigature1 is a macro that symbolizes that list of arguments.\
+\
+When the Helper Tool starts up, it will log the following message to your system console:\
+    <Info>: Starting up\
+When the Helper Tool exits, it will log:\
+    <Info>: Shutting down\
+If BASHelperToolMain() doesn't get any requests within 120 seconds (
+\f3\fs20 \cf5 \CocoaLigature0 kIdleTimeoutInSeconds
+\f0\fs24 \cf0 \CocoaLigature1 ) of starting up, it will exit like that.\
+\
+The error integer returned by the tool may be the error integer returned by your command proc + 100000, for example 100001.  This is because BetterAuthorizationSample adds the value 
+\f3\fs20 \cf4 \CocoaLigature0 errSecErrnoBase
+\f0\fs24 \cf0 \CocoaLigature1  which is 100000.\
+\
+\ul \
+AUTHOR\ulnone \
+\
+Jerry Krinock\
+jerry@ieee.org\
+San Jose, CA USA  2008 Apr 29\
+\
+\ul FURTHER READING\ulnone \
+\
+[1] http://developer.apple.com/samplecode/BetterAuthorizationSample/index.html\
+[2] http://developer.apple.com/qa/qa2001/qa1277.html\
+[3] http://developer.apple.com/documentation/Security/Conceptual/authorization_concepts/01introduction/chapter_1_section_1.html\
+\
+}

@@ -1,0 +1,1020 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		48096DCF11FCEAB6003A4A35 /* SSYUnixPathUtils.c in Sources */ = {isa = PBXBuildFile; fileRef = 48096DCC11FCEAAC003A4A35 /* SSYUnixPathUtils.c */; };
+		48096DD011FCEAD1003A4A35 /* SSYUnixPathUtils.c in Sources */ = {isa = PBXBuildFile; fileRef = 48096DCC11FCEAAC003A4A35 /* SSYUnixPathUtils.c */; };
+		48096DD111FCEAD7003A4A35 /* SSYUnixPathUtils.c in Sources */ = {isa = PBXBuildFile; fileRef = 48096DCC11FCEAAC003A4A35 /* SSYUnixPathUtils.c */; };
+		48096ECB11FDE344003A4A35 /* HelperToolTaskDoStatPaths.c in Sources */ = {isa = PBXBuildFile; fileRef = 48096ECA11FDE344003A4A35 /* HelperToolTaskDoStatPaths.c */; };
+		4809759112013521003A4A35 /* RecursiveChown.c in Sources */ = {isa = PBXBuildFile; fileRef = 4809759012013521003A4A35 /* RecursiveChown.c */; };
+		481230F91041DEBB00DDC15C /* SSDictionaryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 481230F81041DEBB00DDC15C /* SSDictionaryEntry.m */; };
+		4817A5890DBD83B500365FF0 /* SSYAuthorizedTaskmaster.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 48A77B4D0DB7DEB800B5F8B5 /* SSYAuthorizedTaskmaster.framework */; };
+		4845C2D50DC5506E003E7D35 /* HelperToolTaskDoGetUID.c in Sources */ = {isa = PBXBuildFile; fileRef = 4845C2D00DC5506E003E7D35 /* HelperToolTaskDoGetUID.c */; };
+		4845C2D60DC5506E003E7D35 /* HelperToolTaskDoGetVersion.c in Sources */ = {isa = PBXBuildFile; fileRef = 4845C2D10DC5506E003E7D35 /* HelperToolTaskDoGetVersion.c */; };
+		4845C2D70DC5506E003E7D35 /* HelperToolTaskDoOpenSomeLowNumberedPorts.c in Sources */ = {isa = PBXBuildFile; fileRef = 4845C2D20DC5506E003E7D35 /* HelperToolTaskDoOpenSomeLowNumberedPorts.c */; };
+		4845C2D80DC5506E003E7D35 /* HelperToolTaskDoSetAnyUserPrefs.c in Sources */ = {isa = PBXBuildFile; fileRef = 4845C2D30DC5506E003E7D35 /* HelperToolTaskDoSetAnyUserPrefs.c */; };
+		4845C2D90DC5506E003E7D35 /* HelperToolTaskDoWriteDataToFile.c in Sources */ = {isa = PBXBuildFile; fileRef = 4845C2D40DC5506E003E7D35 /* HelperToolTaskDoWriteDataToFile.c */; };
+		4845C5000DC68F77003E7D35 /* CommandProcs_Demo.c in Sources */ = {isa = PBXBuildFile; fileRef = 4845C4FF0DC68F77003E7D35 /* CommandProcs_Demo.c */; };
+		4845C7F80DC6D8E2003E7D35 /* BetterAuthorizationSampleLib.c in Sources */ = {isa = PBXBuildFile; fileRef = 84D6DD960AD2F84F001E6F67 /* BetterAuthorizationSampleLib.c */; };
+		4845C7FB0DC6D8E2003E7D35 /* HelperToolMain.c in Sources */ = {isa = PBXBuildFile; fileRef = 48A782C70DB9492800B5F8B5 /* HelperToolMain.c */; };
+		4845C7FF0DC6D8E2003E7D35 /* HelperToolTaskDoSetAnyUserPrefs.c in Sources */ = {isa = PBXBuildFile; fileRef = 4845C2D30DC5506E003E7D35 /* HelperToolTaskDoSetAnyUserPrefs.c */; };
+		4845C8030DC6D8E2003E7D35 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09AB6884FE841BABC02AAC07 /* CoreFoundation.framework */; };
+		4845C8040DC6D8E2003E7D35 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D6DDDB0AD302A2001E6F67 /* Security.framework */; };
+		4845C8050DC6D8E2003E7D35 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48501E470DB552C4007D68DC /* CoreServices.framework */; };
+		4845C81F0DC6D964003E7D35 /* AuthorizedTasks_SetAnyUserPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 4845C81A0DC6D964003E7D35 /* AuthorizedTasks_SetAnyUserPrefs.m */; };
+		4845C8200DC6D964003E7D35 /* CommandProcs_SetAnyUserPrefs.c in Sources */ = {isa = PBXBuildFile; fileRef = 4845C81C0DC6D964003E7D35 /* CommandProcs_SetAnyUserPrefs.c */; };
+		48501CBD0DB43AC7007D68DC /* SSYAuthorizedTaskmaster+DemoTasks.m in Sources */ = {isa = PBXBuildFile; fileRef = 48501CBC0DB43AC7007D68DC /* SSYAuthorizedTaskmaster+DemoTasks.m */; };
+		48501E480DB552C4007D68DC /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48501E470DB552C4007D68DC /* CoreServices.framework */; };
+		4859E5DC0FB6341C00B7CD07 /* BetterAuthorizationSampleLib.c in Sources */ = {isa = PBXBuildFile; fileRef = 84D6DD960AD2F84F001E6F67 /* BetterAuthorizationSampleLib.c */; };
+		4859E5DE0FB6341C00B7CD07 /* HelperToolMain.c in Sources */ = {isa = PBXBuildFile; fileRef = 48A782C70DB9492800B5F8B5 /* HelperToolMain.c */; };
+		4859E5E20FB6341C00B7CD07 /* HelperToolTaskDoSetAnyUserPrefs.c in Sources */ = {isa = PBXBuildFile; fileRef = 4845C2D30DC5506E003E7D35 /* HelperToolTaskDoSetAnyUserPrefs.c */; };
+		4859E5E50FB6341C00B7CD07 /* MoreCFQ.c in Sources */ = {isa = PBXBuildFile; fileRef = 48EBCDB30DC95933002698DA /* MoreCFQ.c */; };
+		4859E5E70FB6341C00B7CD07 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09AB6884FE841BABC02AAC07 /* CoreFoundation.framework */; };
+		4859E5E80FB6341C00B7CD07 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D6DDDB0AD302A2001E6F67 /* Security.framework */; };
+		4859E5E90FB6341C00B7CD07 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48501E470DB552C4007D68DC /* CoreServices.framework */; };
+		4859E6110FB6374300B7CD07 /* AuthorizedTasks_Typicapp.m in Sources */ = {isa = PBXBuildFile; fileRef = 4859E60E0FB6374300B7CD07 /* AuthorizedTasks_Typicapp.m */; };
+		4859E6120FB6374300B7CD07 /* CommandProcs_Typicapp.c in Sources */ = {isa = PBXBuildFile; fileRef = 4859E6100FB6374300B7CD07 /* CommandProcs_Typicapp.c */; };
+		4859E6180FB63C7E00B7CD07 /* HelperToolTaskDoCopyPaths.c in Sources */ = {isa = PBXBuildFile; fileRef = 4859E6170FB63C7E00B7CD07 /* HelperToolTaskDoCopyPaths.c */; };
+		486B71B50FBB7EFC00525031 /* SSYAuthorizedHelpee.h in Headers */ = {isa = PBXBuildFile; fileRef = 486B70EE0FBB680000525031 /* SSYAuthorizedHelpee.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4876D5690DB2E78500F46C64 /* DemoAppMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4876D5680DB2E78500F46C64 /* DemoAppMain.m */; };
+		488C58A50F16C52600874FA9 /* BetterAuthorizationSampleLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D6DD950AD2F84F001E6F67 /* BetterAuthorizationSampleLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48A77C020DB7E88800B5F8B5 /* BetterAuthorizationSampleLib.c in Sources */ = {isa = PBXBuildFile; fileRef = 84D6DD960AD2F84F001E6F67 /* BetterAuthorizationSampleLib.c */; };
+		48A77C040DB7E89400B5F8B5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D6DDDB0AD302A2001E6F67 /* Security.framework */; };
+		48A77C0B0DB7E8A200B5F8B5 /* SSYAuthorizedTaskmaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 4876D59D0DB3C1E500F46C64 /* SSYAuthorizedTaskmaster.m */; };
+		48A77C240DB7E94600B5F8B5 /* SSYAuthorizedTaskmaster.h in Headers */ = {isa = PBXBuildFile; fileRef = 4876D59C0DB3C1E500F46C64 /* SSYAuthorizedTaskmaster.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48A77C310DB7E99F00B5F8B5 /* SSYAuthorizedTaskmaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A77B4D0DB7DEB800B5F8B5 /* SSYAuthorizedTaskmaster.framework */; };
+		48A77DBA0DB8008C00B5F8B5 /* AuthorizedTaskHelperTool_Demo in CopyFiles */ = {isa = PBXBuildFile; fileRef = 845767A60ADC470900D69CBB /* AuthorizedTaskHelperTool_Demo */; };
+		48A77DBB0DB8008C00B5F8B5 /* AuthorizedTaskHelperToolInstaller in CopyFiles */ = {isa = PBXBuildFile; fileRef = E449EC6E0B619E02009E190A /* AuthorizedTaskHelperToolInstaller */; };
+		48A782C80DB9492800B5F8B5 /* HelperToolMain.c in Sources */ = {isa = PBXBuildFile; fileRef = 48A782C70DB9492800B5F8B5 /* HelperToolMain.c */; };
+		48A939670FB8CD8A00516BFB /* HelperToolTaskDoSetPermissions.c in Sources */ = {isa = PBXBuildFile; fileRef = 48A939660FB8CD8A00516BFB /* HelperToolTaskDoSetPermissions.c */; };
+		48EBCDB40DC95933002698DA /* MoreCFQ.c in Sources */ = {isa = PBXBuildFile; fileRef = 48EBCDB30DC95933002698DA /* MoreCFQ.c */; };
+		48EBCDB50DC95933002698DA /* MoreCFQ.c in Sources */ = {isa = PBXBuildFile; fileRef = 48EBCDB30DC95933002698DA /* MoreCFQ.c */; };
+		845767A90ADC471D00D69CBB /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09AB6884FE841BABC02AAC07 /* CoreFoundation.framework */; };
+		845767AA0ADC471D00D69CBB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D6DDDB0AD302A2001E6F67 /* Security.framework */; };
+		845767B00ADC4AF500D69CBB /* BetterAuthorizationSampleLib.c in Sources */ = {isa = PBXBuildFile; fileRef = 84D6DD960AD2F84F001E6F67 /* BetterAuthorizationSampleLib.c */; };
+		E403D7510B13B0C8007A707A /* DemoApp.nib in Resources */ = {isa = PBXBuildFile; fileRef = E403D7500B13B0C8007A707A /* DemoApp.nib */; };
+		E42F4A740B13443B00A50F72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E42F4A730B13443B00A50F72 /* Localizable.strings */; };
+		E449EC830B619E4B009E190A /* BetterAuthorizationSampleLibInstallTool.c in Sources */ = {isa = PBXBuildFile; fileRef = E449EC820B619E4B009E190A /* BetterAuthorizationSampleLibInstallTool.c */; };
+		E4F1F1960B0DD65D003CDB5F /* AuthorizedTasks_Demo.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F1F1940B0DD65D003CDB5F /* AuthorizedTasks_Demo.m */; };
+		E4F1F2FE0B0DED0C003CDB5F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F1F2FD0B0DED0C003CDB5F /* Cocoa.framework */; };
+		E4F1F32C0B0DED85003CDB5F /* DemoAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845767D10ADC565F00D69CBB /* DemoAppController.m */; };
+		E4F1F3560B0DED94003CDB5F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D6DDDB0AD302A2001E6F67 /* Security.framework */; };
+		E4F1F3580B0DED9F003CDB5F /* BetterAuthorizationSampleLib.c in Sources */ = {isa = PBXBuildFile; fileRef = 84D6DD960AD2F84F001E6F67 /* BetterAuthorizationSampleLib.c */; };
+		E4F1F4BB0B0E11EE003CDB5F /* AuthorizedTasks_Demo.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F1F1940B0DD65D003CDB5F /* AuthorizedTasks_Demo.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		48A77B560DB7DEF700B5F8B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 48A77B4C0DB7DEB800B5F8B5;
+			remoteInfo = PrivilegedTaskRunner;
+		};
+		E4BBC26E0B69192100DC1BB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E449EC630B619E02009E190A;
+			remoteInfo = InstallTool;
+		};
+		E4F1F4CB0B0E1218003CDB5F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 845767A50ADC470900D69CBB;
+			remoteInfo = Tool;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4817A5860DBD839300365FF0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4817A5890DBD83B500365FF0 /* SSYAuthorizedTaskmaster.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4F1F5640B0E17C8003CDB5F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				48A77DBA0DB8008C00B5F8B5 /* AuthorizedTaskHelperTool_Demo in CopyFiles */,
+				48A77DBB0DB8008C00B5F8B5 /* AuthorizedTaskHelperToolInstaller in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		09AB6884FE841BABC02AAC07 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
+		48096DCB11FCEAAC003A4A35 /* SSYUnixPathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SSYUnixPathUtils.h; path = ../../Functions/SSYUnixPathUtils.h; sourceTree = SOURCE_ROOT; };
+		48096DCC11FCEAAC003A4A35 /* SSYUnixPathUtils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = SSYUnixPathUtils.c; path = ../../Functions/SSYUnixPathUtils.c; sourceTree = SOURCE_ROOT; };
+		48096ECA11FDE344003A4A35 /* HelperToolTaskDoStatPaths.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HelperToolTaskDoStatPaths.c; sourceTree = "<group>"; };
+		4809758F12013521003A4A35 /* RecursiveChown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecursiveChown.h; path = ../../Functions/RecursiveChown.h; sourceTree = SOURCE_ROOT; };
+		4809759012013521003A4A35 /* RecursiveChown.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RecursiveChown.c; path = ../../Functions/RecursiveChown.c; sourceTree = SOURCE_ROOT; };
+		481230F71041DEBB00DDC15C /* SSDictionaryEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDictionaryEntry.h; sourceTree = "<group>"; };
+		481230F81041DEBB00DDC15C /* SSDictionaryEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDictionaryEntry.m; sourceTree = "<group>"; };
+		4845C2D00DC5506E003E7D35 /* HelperToolTaskDoGetUID.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HelperToolTaskDoGetUID.c; sourceTree = "<group>"; };
+		4845C2D10DC5506E003E7D35 /* HelperToolTaskDoGetVersion.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HelperToolTaskDoGetVersion.c; sourceTree = "<group>"; };
+		4845C2D20DC5506E003E7D35 /* HelperToolTaskDoOpenSomeLowNumberedPorts.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HelperToolTaskDoOpenSomeLowNumberedPorts.c; sourceTree = "<group>"; };
+		4845C2D30DC5506E003E7D35 /* HelperToolTaskDoSetAnyUserPrefs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HelperToolTaskDoSetAnyUserPrefs.c; sourceTree = "<group>"; };
+		4845C2D40DC5506E003E7D35 /* HelperToolTaskDoWriteDataToFile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HelperToolTaskDoWriteDataToFile.c; sourceTree = "<group>"; };
+		4845C3EA0DC6795F003E7D35 /* CommandProcArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandProcArguments.h; sourceTree = "<group>"; };
+		4845C4FF0DC68F77003E7D35 /* CommandProcs_Demo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CommandProcs_Demo.c; sourceTree = "<group>"; };
+		4845C80B0DC6D8E2003E7D35 /* AuthorizedTaskHelperTool_SetAnyUserPrefs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AuthorizedTaskHelperTool_SetAnyUserPrefs; sourceTree = BUILT_PRODUCTS_DIR; };
+		4845C81A0DC6D964003E7D35 /* AuthorizedTasks_SetAnyUserPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizedTasks_SetAnyUserPrefs.m; sourceTree = "<group>"; };
+		4845C81B0DC6D964003E7D35 /* AuthorizedTasks_SetAnyUserPrefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizedTasks_SetAnyUserPrefs.h; sourceTree = "<group>"; };
+		4845C81C0DC6D964003E7D35 /* CommandProcs_SetAnyUserPrefs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CommandProcs_SetAnyUserPrefs.c; sourceTree = "<group>"; };
+		48501CBB0DB43AC7007D68DC /* SSYAuthorizedTaskmaster+DemoTasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SSYAuthorizedTaskmaster+DemoTasks.h"; sourceTree = "<group>"; };
+		48501CBC0DB43AC7007D68DC /* SSYAuthorizedTaskmaster+DemoTasks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SSYAuthorizedTaskmaster+DemoTasks.m"; sourceTree = "<group>"; };
+		48501DC30DB4E84F007D68DC /* MoreCFQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreCFQ.h; sourceTree = "<group>"; };
+		48501E3E0DB54FDA007D68DC /* MoreSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreSetup.h; sourceTree = "<group>"; };
+		48501E470DB552C4007D68DC /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
+		4859E5EE0FB6341C00B7CD07 /* AuthorizedTaskHelperTool_Typicapp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AuthorizedTaskHelperTool_Typicapp; sourceTree = BUILT_PRODUCTS_DIR; };
+		4859E60E0FB6374300B7CD07 /* AuthorizedTasks_Typicapp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizedTasks_Typicapp.m; sourceTree = "<group>"; };
+		4859E60F0FB6374300B7CD07 /* AuthorizedTasks_Typicapp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizedTasks_Typicapp.h; sourceTree = "<group>"; };
+		4859E6100FB6374300B7CD07 /* CommandProcs_Typicapp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CommandProcs_Typicapp.c; sourceTree = "<group>"; };
+		4859E6170FB63C7E00B7CD07 /* HelperToolTaskDoCopyPaths.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HelperToolTaskDoCopyPaths.c; sourceTree = "<group>"; };
+		486B70EE0FBB680000525031 /* SSYAuthorizedHelpee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSYAuthorizedHelpee.h; sourceTree = "<group>"; };
+		4876D4330DB2E69F00F46C64 /* DemoAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAppController.h; sourceTree = "<group>"; };
+		4876D5680DB2E78500F46C64 /* DemoAppMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAppMain.m; sourceTree = "<group>"; };
+		4876D59C0DB3C1E500F46C64 /* SSYAuthorizedTaskmaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSYAuthorizedTaskmaster.h; sourceTree = "<group>"; };
+		4876D59D0DB3C1E500F46C64 /* SSYAuthorizedTaskmaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSYAuthorizedTaskmaster.m; sourceTree = "<group>"; };
+		48A77B4D0DB7DEB800B5F8B5 /* SSYAuthorizedTaskmaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSYAuthorizedTaskmaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48A782C70DB9492800B5F8B5 /* HelperToolMain.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HelperToolMain.c; sourceTree = "<group>"; };
+		48A939660FB8CD8A00516BFB /* HelperToolTaskDoSetPermissions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HelperToolTaskDoSetPermissions.c; sourceTree = "<group>"; };
+		48B4B52D0DBA3E88009A4331 /* DemoApp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DemoApp-Info.plist"; sourceTree = "<group>"; };
+		48B4B52F0DBA3E98009A4331 /* SSYAuthorizedTaskmaster-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SSYAuthorizedTaskmaster-Info.plist"; sourceTree = "<group>"; };
+		48B4B5340DBA4375009A4331 /* ToolUninstaller.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = ToolUninstaller.sh; sourceTree = "<group>"; wrapsLines = 1; };
+		48EBCD2B0DC831EF002698DA /* Readme.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Readme.rtf; sourceTree = "<group>"; };
+		48EBCDB30DC95933002698DA /* MoreCFQ.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MoreCFQ.c; sourceTree = "<group>"; };
+		845767A60ADC470900D69CBB /* AuthorizedTaskHelperTool_Demo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AuthorizedTaskHelperTool_Demo; sourceTree = BUILT_PRODUCTS_DIR; };
+		845767D10ADC565F00D69CBB /* DemoAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAppController.m; sourceTree = "<group>"; };
+		84D6DD950AD2F84F001E6F67 /* BetterAuthorizationSampleLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BetterAuthorizationSampleLib.h; sourceTree = "<group>"; };
+		84D6DD960AD2F84F001E6F67 /* BetterAuthorizationSampleLib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BetterAuthorizationSampleLib.c; sourceTree = "<group>"; };
+		84D6DDDB0AD302A2001E6F67 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
+		E403D7500B13B0C8007A707A /* DemoApp.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = DemoApp.nib; sourceTree = "<group>"; };
+		E42F4C260B13656200A50F72 /* en */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; wrapsLines = 1; };
+		E449EC6E0B619E02009E190A /* AuthorizedTaskHelperToolInstaller */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AuthorizedTaskHelperToolInstaller; sourceTree = BUILT_PRODUCTS_DIR; };
+		E449EC820B619E4B009E190A /* BetterAuthorizationSampleLibInstallTool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BetterAuthorizationSampleLibInstallTool.c; sourceTree = "<group>"; };
+		E4F1F1940B0DD65D003CDB5F /* AuthorizedTasks_Demo.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = AuthorizedTasks_Demo.m; sourceTree = "<group>"; };
+		E4F1F1950B0DD65D003CDB5F /* AuthorizedTasks_Demo.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = AuthorizedTasks_Demo.h; sourceTree = "<group>"; };
+		E4F1F2BE0B0DECA3003CDB5F /* Demo App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4F1F2FD0B0DED0C003CDB5F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4845C8020DC6D8E2003E7D35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4845C8030DC6D8E2003E7D35 /* CoreFoundation.framework in Frameworks */,
+				4845C8040DC6D8E2003E7D35 /* Security.framework in Frameworks */,
+				4845C8050DC6D8E2003E7D35 /* CoreServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4859E5E60FB6341C00B7CD07 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4859E5E70FB6341C00B7CD07 /* CoreFoundation.framework in Frameworks */,
+				4859E5E80FB6341C00B7CD07 /* Security.framework in Frameworks */,
+				4859E5E90FB6341C00B7CD07 /* CoreServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48A77B4B0DB7DEB800B5F8B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48A77C040DB7E89400B5F8B5 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		845767A40ADC470900D69CBB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				845767A90ADC471D00D69CBB /* CoreFoundation.framework in Frameworks */,
+				845767AA0ADC471D00D69CBB /* Security.framework in Frameworks */,
+				48501E480DB552C4007D68DC /* CoreServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E449EC680B619E02009E190A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4F1F2BC0B0DECA3003CDB5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4F1F3560B0DED94003CDB5F /* Security.framework in Frameworks */,
+				E4F1F2FE0B0DED0C003CDB5F /* Cocoa.framework in Frameworks */,
+				48A77C310DB7E99F00B5F8B5 /* SSYAuthorizedTaskmaster.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* BetterAuthorizationSample */ = {
+			isa = PBXGroup;
+			children = (
+				48EBCD2B0DC831EF002698DA /* Readme.rtf */,
+				48B4B5340DBA4375009A4331 /* ToolUninstaller.sh */,
+				48A77A690DB79F3E00B5F8B5 /* Common Sources */,
+				4845C3E90DC67886003E7D35 /* Application Cases */,
+				48A77A670DB79F0800B5F8B5 /* Helper Tool */,
+				48A77B2C0DB7DB8C00B5F8B5 /* SSYAuthorizedTaskMaster (framework) */,
+				48A77A680DB79F1000B5F8B5 /* Helper-Tool-Installer Tool */,
+				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
+				19C28FBDFE9D53C911CA2CBB /* Products */,
+			);
+			name = BetterAuthorizationSample;
+			sourceTree = "<group>";
+		};
+		08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				48501E470DB552C4007D68DC /* CoreServices.framework */,
+				09AB6884FE841BABC02AAC07 /* CoreFoundation.framework */,
+				84D6DDDB0AD302A2001E6F67 /* Security.framework */,
+				E4F1F2FD0B0DED0C003CDB5F /* Cocoa.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		19C28FBDFE9D53C911CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				845767A60ADC470900D69CBB /* AuthorizedTaskHelperTool_Demo */,
+				E4F1F2BE0B0DECA3003CDB5F /* Demo App.app */,
+				E449EC6E0B619E02009E190A /* AuthorizedTaskHelperToolInstaller */,
+				48A77B4D0DB7DEB800B5F8B5 /* SSYAuthorizedTaskmaster.framework */,
+				4845C80B0DC6D8E2003E7D35 /* AuthorizedTaskHelperTool_SetAnyUserPrefs */,
+				4859E5EE0FB6341C00B7CD07 /* AuthorizedTaskHelperTool_Typicapp */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4845C3E60DC6779E003E7D35 /* Demo (with App) (does 5 tasks) */ = {
+			isa = PBXGroup;
+			children = (
+				E4F1F1950B0DD65D003CDB5F /* AuthorizedTasks_Demo.h */,
+				E4F1F1940B0DD65D003CDB5F /* AuthorizedTasks_Demo.m */,
+				4845C4FF0DC68F77003E7D35 /* CommandProcs_Demo.c */,
+				48501CBB0DB43AC7007D68DC /* SSYAuthorizedTaskmaster+DemoTasks.h */,
+				48501CBC0DB43AC7007D68DC /* SSYAuthorizedTaskmaster+DemoTasks.m */,
+				48A77A640DB79EEA00B5F8B5 /* App */,
+			);
+			name = "Demo (with App) (does 5 tasks)";
+			sourceTree = "<group>";
+		};
+		4845C3E90DC67886003E7D35 /* Application Cases */ = {
+			isa = PBXGroup;
+			children = (
+				4845C3E60DC6779E003E7D35 /* Demo (with App) (does 5 tasks) */,
+				4845C7860DC6BFA6003E7D35 /* SetAnyUserPrefs (does 1 task) */,
+				4859E5D80FB633D600B7CD07 /* Typicapp (does 4 tasks) */,
+			);
+			name = "Application Cases";
+			sourceTree = "<group>";
+		};
+		4845C7860DC6BFA6003E7D35 /* SetAnyUserPrefs (does 1 task) */ = {
+			isa = PBXGroup;
+			children = (
+				4845C81A0DC6D964003E7D35 /* AuthorizedTasks_SetAnyUserPrefs.m */,
+				4845C81B0DC6D964003E7D35 /* AuthorizedTasks_SetAnyUserPrefs.h */,
+				4845C81C0DC6D964003E7D35 /* CommandProcs_SetAnyUserPrefs.c */,
+			);
+			name = "SetAnyUserPrefs (does 1 task)";
+			sourceTree = "<group>";
+		};
+		4845C78C0DC6C251003E7D35 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				4845C2D10DC5506E003E7D35 /* HelperToolTaskDoGetVersion.c */,
+				4845C2D00DC5506E003E7D35 /* HelperToolTaskDoGetUID.c */,
+				4845C2D20DC5506E003E7D35 /* HelperToolTaskDoOpenSomeLowNumberedPorts.c */,
+				4845C2D30DC5506E003E7D35 /* HelperToolTaskDoSetAnyUserPrefs.c */,
+				4845C2D40DC5506E003E7D35 /* HelperToolTaskDoWriteDataToFile.c */,
+				4859E6170FB63C7E00B7CD07 /* HelperToolTaskDoCopyPaths.c */,
+				48096ECA11FDE344003A4A35 /* HelperToolTaskDoStatPaths.c */,
+				48A939660FB8CD8A00516BFB /* HelperToolTaskDoSetPermissions.c */,
+			);
+			name = Tasks;
+			sourceTree = "<group>";
+		};
+		4859E5D80FB633D600B7CD07 /* Typicapp (does 4 tasks) */ = {
+			isa = PBXGroup;
+			children = (
+				4859E60E0FB6374300B7CD07 /* AuthorizedTasks_Typicapp.m */,
+				4859E60F0FB6374300B7CD07 /* AuthorizedTasks_Typicapp.h */,
+				4859E6100FB6374300B7CD07 /* CommandProcs_Typicapp.c */,
+			);
+			name = "Typicapp (does 4 tasks)";
+			sourceTree = "<group>";
+		};
+		48A77A640DB79EEA00B5F8B5 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				481230F71041DEBB00DDC15C /* SSDictionaryEntry.h */,
+				481230F81041DEBB00DDC15C /* SSDictionaryEntry.m */,
+				48B4B52D0DBA3E88009A4331 /* DemoApp-Info.plist */,
+				4876D5680DB2E78500F46C64 /* DemoAppMain.m */,
+				4876D4330DB2E69F00F46C64 /* DemoAppController.h */,
+				845767D10ADC565F00D69CBB /* DemoAppController.m */,
+				E403D7500B13B0C8007A707A /* DemoApp.nib */,
+				E42F4A730B13443B00A50F72 /* Localizable.strings */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		48A77A670DB79F0800B5F8B5 /* Helper Tool */ = {
+			isa = PBXGroup;
+			children = (
+				4845C78C0DC6C251003E7D35 /* Tasks */,
+				48A782C70DB9492800B5F8B5 /* HelperToolMain.c */,
+				48501E3E0DB54FDA007D68DC /* MoreSetup.h */,
+				48EBCDB30DC95933002698DA /* MoreCFQ.c */,
+				48501DC30DB4E84F007D68DC /* MoreCFQ.h */,
+				48096DCB11FCEAAC003A4A35 /* SSYUnixPathUtils.h */,
+				48096DCC11FCEAAC003A4A35 /* SSYUnixPathUtils.c */,
+				4809758F12013521003A4A35 /* RecursiveChown.h */,
+				4809759012013521003A4A35 /* RecursiveChown.c */,
+			);
+			name = "Helper Tool";
+			sourceTree = "<group>";
+		};
+		48A77A680DB79F1000B5F8B5 /* Helper-Tool-Installer Tool */ = {
+			isa = PBXGroup;
+			children = (
+				E449EC820B619E4B009E190A /* BetterAuthorizationSampleLibInstallTool.c */,
+			);
+			name = "Helper-Tool-Installer Tool";
+			sourceTree = "<group>";
+		};
+		48A77A690DB79F3E00B5F8B5 /* Common Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4845C3EA0DC6795F003E7D35 /* CommandProcArguments.h */,
+				84D6DD950AD2F84F001E6F67 /* BetterAuthorizationSampleLib.h */,
+				84D6DD960AD2F84F001E6F67 /* BetterAuthorizationSampleLib.c */,
+			);
+			name = "Common Sources";
+			sourceTree = "<group>";
+		};
+		48A77B2C0DB7DB8C00B5F8B5 /* SSYAuthorizedTaskMaster (framework) */ = {
+			isa = PBXGroup;
+			children = (
+				486B70EE0FBB680000525031 /* SSYAuthorizedHelpee.h */,
+				48B4B52F0DBA3E98009A4331 /* SSYAuthorizedTaskmaster-Info.plist */,
+				4876D59C0DB3C1E500F46C64 /* SSYAuthorizedTaskmaster.h */,
+				4876D59D0DB3C1E500F46C64 /* SSYAuthorizedTaskmaster.m */,
+			);
+			name = "SSYAuthorizedTaskMaster (framework)";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		48A77B480DB7DEB800B5F8B5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48A77C240DB7E94600B5F8B5 /* SSYAuthorizedTaskmaster.h in Headers */,
+				488C58A50F16C52600874FA9 /* BetterAuthorizationSampleLib.h in Headers */,
+				486B71B50FBB7EFC00525031 /* SSYAuthorizedHelpee.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4845C7F60DC6D8E2003E7D35 /* AuthorizedTaskHelperTool_SetAnyUserPrefs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4845C8070DC6D8E2003E7D35 /* Build configuration list for PBXNativeTarget "AuthorizedTaskHelperTool_SetAnyUserPrefs" */;
+			buildPhases = (
+				4845C7F70DC6D8E2003E7D35 /* Sources */,
+				4845C8020DC6D8E2003E7D35 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AuthorizedTaskHelperTool_SetAnyUserPrefs;
+			productName = com.apple.dts.BetterAuthorizationSample.tool;
+			productReference = 4845C80B0DC6D8E2003E7D35 /* AuthorizedTaskHelperTool_SetAnyUserPrefs */;
+			productType = "com.apple.product-type.tool";
+		};
+		4859E5DA0FB6341C00B7CD07 /* AuthorizedTaskHelperTool_Typicapp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4859E5EA0FB6341C00B7CD07 /* Build configuration list for PBXNativeTarget "AuthorizedTaskHelperTool_Typicapp" */;
+			buildPhases = (
+				4859E5DB0FB6341C00B7CD07 /* Sources */,
+				4859E5E60FB6341C00B7CD07 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AuthorizedTaskHelperTool_Typicapp;
+			productName = com.apple.dts.BetterAuthorizationSample.tool;
+			productReference = 4859E5EE0FB6341C00B7CD07 /* AuthorizedTaskHelperTool_Typicapp */;
+			productType = "com.apple.product-type.tool";
+		};
+		48A77B4C0DB7DEB800B5F8B5 /* SSYAuthorizedTaskmaster */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48A77B550DB7DEF300B5F8B5 /* Build configuration list for PBXNativeTarget "SSYAuthorizedTaskmaster" */;
+			buildPhases = (
+				48A77B480DB7DEB800B5F8B5 /* Headers */,
+				48A77B490DB7DEB800B5F8B5 /* Resources */,
+				48A77B4A0DB7DEB800B5F8B5 /* Sources */,
+				48A77B4B0DB7DEB800B5F8B5 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SSYAuthorizedTaskmaster;
+			productName = PrivilegedTaskRunner;
+			productReference = 48A77B4D0DB7DEB800B5F8B5 /* SSYAuthorizedTaskmaster.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		845767A50ADC470900D69CBB /* AuthorizedTaskHelperTool_Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 845767AC0ADC474C00D69CBB /* Build configuration list for PBXNativeTarget "AuthorizedTaskHelperTool_Demo" */;
+			buildPhases = (
+				845767A30ADC470900D69CBB /* Sources */,
+				845767A40ADC470900D69CBB /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AuthorizedTaskHelperTool_Demo;
+			productName = com.apple.dts.BetterAuthorizationSample.tool;
+			productReference = 845767A60ADC470900D69CBB /* AuthorizedTaskHelperTool_Demo */;
+			productType = "com.apple.product-type.tool";
+		};
+		E449EC630B619E02009E190A /* AuthorizedTaskHelperToolInstaller */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E449EC6B0B619E02009E190A /* Build configuration list for PBXNativeTarget "AuthorizedTaskHelperToolInstaller" */;
+			buildPhases = (
+				E449EC640B619E02009E190A /* Sources */,
+				E449EC680B619E02009E190A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AuthorizedTaskHelperToolInstaller;
+			productName = com.apple.dts.BetterAuthorizationSample.tool;
+			productReference = E449EC6E0B619E02009E190A /* AuthorizedTaskHelperToolInstaller */;
+			productType = "com.apple.product-type.tool";
+		};
+		E4F1F2BD0B0DECA3003CDB5F /* Demo App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4F1F2C10B0DECA3003CDB5F /* Build configuration list for PBXNativeTarget "Demo App" */;
+			buildPhases = (
+				E4F1F2BA0B0DECA3003CDB5F /* Resources */,
+				E4F1F2BB0B0DECA3003CDB5F /* Sources */,
+				E4F1F2BC0B0DECA3003CDB5F /* Frameworks */,
+				E4F1F5640B0E17C8003CDB5F /* CopyFiles */,
+				4817A5860DBD839300365FF0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E4F1F4CC0B0E1218003CDB5F /* PBXTargetDependency */,
+				E4BBC26F0B69192100DC1BB6 /* PBXTargetDependency */,
+				48A77B570DB7DEF700B5F8B5 /* PBXTargetDependency */,
+			);
+			name = "Demo App";
+			productName = App;
+			productReference = E4F1F2BE0B0DECA3003CDB5F /* Demo App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB924B08733DCA0010E9CD /* Build configuration list for PBXProject "AuthorizedTasksInCocoa" */;
+			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 08FB7794FE84155DC02AAC07 /* BetterAuthorizationSample */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E4F1F2BD0B0DECA3003CDB5F /* Demo App */,
+				845767A50ADC470900D69CBB /* AuthorizedTaskHelperTool_Demo */,
+				E449EC630B619E02009E190A /* AuthorizedTaskHelperToolInstaller */,
+				48A77B4C0DB7DEB800B5F8B5 /* SSYAuthorizedTaskmaster */,
+				4845C7F60DC6D8E2003E7D35 /* AuthorizedTaskHelperTool_SetAnyUserPrefs */,
+				4859E5DA0FB6341C00B7CD07 /* AuthorizedTaskHelperTool_Typicapp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		48A77B490DB7DEB800B5F8B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4F1F2BA0B0DECA3003CDB5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E42F4A740B13443B00A50F72 /* Localizable.strings in Resources */,
+				E403D7510B13B0C8007A707A /* DemoApp.nib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4845C7F70DC6D8E2003E7D35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4845C7F80DC6D8E2003E7D35 /* BetterAuthorizationSampleLib.c in Sources */,
+				4845C7FB0DC6D8E2003E7D35 /* HelperToolMain.c in Sources */,
+				4845C7FF0DC6D8E2003E7D35 /* HelperToolTaskDoSetAnyUserPrefs.c in Sources */,
+				4845C81F0DC6D964003E7D35 /* AuthorizedTasks_SetAnyUserPrefs.m in Sources */,
+				4845C8200DC6D964003E7D35 /* CommandProcs_SetAnyUserPrefs.c in Sources */,
+				48EBCDB40DC95933002698DA /* MoreCFQ.c in Sources */,
+				48096DD011FCEAD1003A4A35 /* SSYUnixPathUtils.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4859E5DB0FB6341C00B7CD07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4859E5DC0FB6341C00B7CD07 /* BetterAuthorizationSampleLib.c in Sources */,
+				4859E5DE0FB6341C00B7CD07 /* HelperToolMain.c in Sources */,
+				4859E5E20FB6341C00B7CD07 /* HelperToolTaskDoSetAnyUserPrefs.c in Sources */,
+				4859E5E50FB6341C00B7CD07 /* MoreCFQ.c in Sources */,
+				4859E6110FB6374300B7CD07 /* AuthorizedTasks_Typicapp.m in Sources */,
+				4859E6120FB6374300B7CD07 /* CommandProcs_Typicapp.c in Sources */,
+				4859E6180FB63C7E00B7CD07 /* HelperToolTaskDoCopyPaths.c in Sources */,
+				48A939670FB8CD8A00516BFB /* HelperToolTaskDoSetPermissions.c in Sources */,
+				48096DD111FCEAD7003A4A35 /* SSYUnixPathUtils.c in Sources */,
+				48096ECB11FDE344003A4A35 /* HelperToolTaskDoStatPaths.c in Sources */,
+				4809759112013521003A4A35 /* RecursiveChown.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48A77B4A0DB7DEB800B5F8B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48A77C020DB7E88800B5F8B5 /* BetterAuthorizationSampleLib.c in Sources */,
+				48A77C0B0DB7E8A200B5F8B5 /* SSYAuthorizedTaskmaster.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		845767A30ADC470900D69CBB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				845767B00ADC4AF500D69CBB /* BetterAuthorizationSampleLib.c in Sources */,
+				E4F1F1960B0DD65D003CDB5F /* AuthorizedTasks_Demo.m in Sources */,
+				48A782C80DB9492800B5F8B5 /* HelperToolMain.c in Sources */,
+				4845C2D50DC5506E003E7D35 /* HelperToolTaskDoGetUID.c in Sources */,
+				4845C2D60DC5506E003E7D35 /* HelperToolTaskDoGetVersion.c in Sources */,
+				4845C2D70DC5506E003E7D35 /* HelperToolTaskDoOpenSomeLowNumberedPorts.c in Sources */,
+				4845C2D80DC5506E003E7D35 /* HelperToolTaskDoSetAnyUserPrefs.c in Sources */,
+				4845C2D90DC5506E003E7D35 /* HelperToolTaskDoWriteDataToFile.c in Sources */,
+				4845C5000DC68F77003E7D35 /* CommandProcs_Demo.c in Sources */,
+				48EBCDB50DC95933002698DA /* MoreCFQ.c in Sources */,
+				48096DCF11FCEAB6003A4A35 /* SSYUnixPathUtils.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E449EC640B619E02009E190A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E449EC830B619E4B009E190A /* BetterAuthorizationSampleLibInstallTool.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4F1F2BB0B0DECA3003CDB5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4F1F32C0B0DED85003CDB5F /* DemoAppController.m in Sources */,
+				E4F1F3580B0DED9F003CDB5F /* BetterAuthorizationSampleLib.c in Sources */,
+				E4F1F4BB0B0E11EE003CDB5F /* AuthorizedTasks_Demo.m in Sources */,
+				4876D5690DB2E78500F46C64 /* DemoAppMain.m in Sources */,
+				48501CBD0DB43AC7007D68DC /* SSYAuthorizedTaskmaster+DemoTasks.m in Sources */,
+				481230F91041DEBB00DDC15C /* SSDictionaryEntry.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		48A77B570DB7DEF700B5F8B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 48A77B4C0DB7DEB800B5F8B5 /* SSYAuthorizedTaskmaster */;
+			targetProxy = 48A77B560DB7DEF700B5F8B5 /* PBXContainerItemProxy */;
+		};
+		E4BBC26F0B69192100DC1BB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E449EC630B619E02009E190A /* AuthorizedTaskHelperToolInstaller */;
+			targetProxy = E4BBC26E0B69192100DC1BB6 /* PBXContainerItemProxy */;
+		};
+		E4F1F4CC0B0E1218003CDB5F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 845767A50ADC470900D69CBB /* AuthorizedTaskHelperTool_Demo */;
+			targetProxy = E4F1F4CB0B0E1218003CDB5F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E42F4A730B13443B00A50F72 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E42F4C260B13656200A50F72 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB924C08733DCA0010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH)";
+				COPY_PHASE_STRIP = NO;
+				DEPLOYMENT_POSTPROCESSING = NO;
+				GCC_DYNAMIC_NO_PIC = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				WARNING_CFLAGS = "-Wall";
+			};
+			name = Debug;
+		};
+		1DEB924D08733DCA0010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				COPY_PHASE_STRIP = NO;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				WARNING_CFLAGS = "-Wall";
+			};
+			name = Release;
+		};
+		4845C8080DC6D8E2003E7D35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4845C8090DC6D8E2003E7D35 /* Debug64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug64;
+		};
+		4845C80A0DC6D8E2003E7D35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4859E5EB0FB6341C00B7CD07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4859E5EC0FB6341C00B7CD07 /* Debug64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = AuthorizedTaskHelperTool_Demo;
+			};
+			name = Debug64;
+		};
+		4859E5ED0FB6341C00B7CD07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		48A77B4E0DB7DEB800B5F8B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEPLOYMENT_POSTPROCESSING = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PFE_FILE_C_DIALECTS = "c objective-c c++ objective-c++";
+				INFOPLIST_FILE = "SSYAuthorizedTaskmaster-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = SSYAuthorizedTaskmaster;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		48A77B4F0DB7DEB800B5F8B5 /* Debug64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEPLOYMENT_POSTPROCESSING = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PFE_FILE_C_DIALECTS = "c objective-c c++ objective-c++";
+				INFOPLIST_FILE = "SSYAuthorizedTaskmaster-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = SSYAuthorizedTaskmaster;
+				ZERO_LINK = YES;
+			};
+			name = Debug64;
+		};
+		48A77B500DB7DEB800B5F8B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEPLOYMENT_POSTPROCESSING = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PFE_FILE_C_DIALECTS = "c objective-c c++ objective-c++";
+				INFOPLIST_FILE = "SSYAuthorizedTaskmaster-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = SSYAuthorizedTaskmaster;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		845767AD0ADC474C00D69CBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)";
+				PRODUCT_NAME = AuthorizedTaskHelperTool_Demo;
+			};
+			name = Debug;
+		};
+		845767AE0ADC474C00D69CBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = AuthorizedTaskHelperTool_Demo;
+			};
+			name = Release;
+		};
+		E449EC6C0B619E02009E190A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = AuthorizedTaskHelperToolInstaller;
+			};
+			name = Debug;
+		};
+		E449EC6D0B619E02009E190A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = AuthorizedTaskHelperToolInstaller;
+			};
+			name = Release;
+		};
+		E48AC8210C72046E000ED1FA /* Debug64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = AuthorizedTaskHelperTool_Demo;
+			};
+			name = Debug64;
+		};
+		E48AC8220C72046E000ED1FA /* Debug64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = AuthorizedTaskHelperToolInstaller;
+			};
+			name = Debug64;
+		};
+		E48AC8230C72046E000ED1FA /* Debug64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "DemoApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug64;
+		};
+		E48AC8240C72046E000ED1FA /* Debug64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc64,
+					x86_64,
+				);
+				COPY_PHASE_STRIP = NO;
+				DEPLOYMENT_POSTPROCESSING = NO;
+				GCC_DYNAMIC_NO_PIC = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
+				GCC_WARN_UNUSED_VALUE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				WARNING_CFLAGS = "-Wall";
+			};
+			name = Debug64;
+		};
+		E4F1F2C20B0DECA3003CDB5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "DemoApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E4F1F2C30B0DECA3003CDB5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "DemoApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB924B08733DCA0010E9CD /* Build configuration list for PBXProject "AuthorizedTasksInCocoa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB924C08733DCA0010E9CD /* Debug */,
+				E48AC8240C72046E000ED1FA /* Debug64 */,
+				1DEB924D08733DCA0010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4845C8070DC6D8E2003E7D35 /* Build configuration list for PBXNativeTarget "AuthorizedTaskHelperTool_SetAnyUserPrefs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4845C8080DC6D8E2003E7D35 /* Debug */,
+				4845C8090DC6D8E2003E7D35 /* Debug64 */,
+				4845C80A0DC6D8E2003E7D35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4859E5EA0FB6341C00B7CD07 /* Build configuration list for PBXNativeTarget "AuthorizedTaskHelperTool_Typicapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4859E5EB0FB6341C00B7CD07 /* Debug */,
+				4859E5EC0FB6341C00B7CD07 /* Debug64 */,
+				4859E5ED0FB6341C00B7CD07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		48A77B550DB7DEF300B5F8B5 /* Build configuration list for PBXNativeTarget "SSYAuthorizedTaskmaster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48A77B4E0DB7DEB800B5F8B5 /* Debug */,
+				48A77B4F0DB7DEB800B5F8B5 /* Debug64 */,
+				48A77B500DB7DEB800B5F8B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		845767AC0ADC474C00D69CBB /* Build configuration list for PBXNativeTarget "AuthorizedTaskHelperTool_Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				845767AD0ADC474C00D69CBB /* Debug */,
+				E48AC8210C72046E000ED1FA /* Debug64 */,
+				845767AE0ADC474C00D69CBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E449EC6B0B619E02009E190A /* Build configuration list for PBXNativeTarget "AuthorizedTaskHelperToolInstaller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E449EC6C0B619E02009E190A /* Debug */,
+				E48AC8220C72046E000ED1FA /* Debug64 */,
+				E449EC6D0B619E02009E190A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E4F1F2C10B0DECA3003CDB5F /* Build configuration list for PBXNativeTarget "Demo App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4F1F2C20B0DECA3003CDB5F /* Debug */,
+				E48AC8230C72046E000ED1FA /* Debug64 */,
+				E4F1F2C30B0DECA3003CDB5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}

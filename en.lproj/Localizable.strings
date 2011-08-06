@@ -1,0 +1,9 @@
+/* Note that all of the strings end in a space.  That is because, although two spaces should follow a period-ending sentence, the system will append a string beginning with one space.  " MyApp.app requires that you type your password."*/
+
+"adminMustHaveGenericPrompt" = "You must supply an adminstrator credential to perform this action. ";
+
+"adminAccessFiles" = "You must supply an adminstrator credential to access required files in this demo. " ;
+
+"getUIDsPrompt" = "You must be authorized to get UIDs from a privileged process. ";
+
+"lowNumberedPortsPrompt" = "Well, we've got some potentially bad news here for you, chief.  If you want to play with the big boys you've got to show your stuff.  We're not playing games here.  This is serious business.  We don't want anyone to compromise our security.  You must supply an adminstrator credential in blood to open low-numbered TCP ports.  (Actually I wanted to test and see if there was a limit to how long this string could be.) ";
