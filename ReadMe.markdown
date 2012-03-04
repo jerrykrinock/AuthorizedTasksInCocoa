@@ -8,5 +8,5 @@ Do not use this code.  This framework is based on Apple's BetterAuthorizationSam
 
 ### Modern Alternatives
 
-Nathan Daniel seems to have [figured it all out](http://atnan.com/blog/2012/02/29/modern-privileged-helper-tools-using-smjobbless-plus-xpc/
+Nathan de Vries seems to have [figured it all out](http://atnan.com/blog/2012/02/29/modern-privileged-helper-tools-using-smjobbless-plus-xpc/
 ).
