@@ -12,7 +12,7 @@
 OSStatus DoGetVersion(COMMAND_PROC_ARGUMENTS) {	
 	OSStatus					retval = noErr;
 	CFNumberRef					value;
-    static const int kCurrentVersion = 17;          // something very easy to spot
+    static const int kCurrentVersion = 18;
 	
 	// Pre-conditions
 	

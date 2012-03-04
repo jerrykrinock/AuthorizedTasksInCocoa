@@ -214,8 +214,9 @@ OSStatus DoCopyPaths(COMMAND_PROC_ARGUMENTS) {
 				if (ok) {
 					result = UnixOwnerIDs(destinPathC, &destin_uid, NULL) ;
 					if (result != 0) {
-						char* moreInfo = NULL ;
-						sprintf (moreInfo, "destin_uid=%d  destinPath=%s", destin_uid, destinPathC) ;   
+						char moreInfo[255] ;
+						// Incorrect usage of sprintf crashed; fixed in version 18 of this tool (BookMacster 1.10.0)
+						snprintf (moreInfo, 255, "destin_uid=%d  destinPath=%s", destin_uid, destinPathC) ;   
 						CFDictionaryRef error = CreateErrorDictionary("UnixOwnerIDs", result, errno, moreInfo) ;
 						CFDictionaryAddValue(errors, sourcePath, error) ;
 						CFQRelease(error) ;
@@ -236,8 +237,9 @@ OSStatus DoCopyPaths(COMMAND_PROC_ARGUMENTS) {
 							destinPathC
 							) ;
 					if (result != 0) {
-						char* moreInfo = NULL ;
-						sprintf (moreInfo, "destin_uid=%d  destin_gid=%d  destinPath=%s", destin_uid, destin_gid, destinPathC) ;   
+						char moreInfo[255] ;
+						// Incorrect usage of sprintf crashed; fixed in version 18 of this tool (BookMacster 1.10.0)
+						snprintf (moreInfo, 255, "destin_uid=%d  destin_gid=%d  destinPath=%s", destin_uid, destin_gid, destinPathC) ;   
 						CFDictionaryRef error = CreateErrorDictionary("chown", result, errno, moreInfo) ;
 						CFDictionaryAddValue(errors, sourcePath, error) ;
 						CFQRelease(error) ;

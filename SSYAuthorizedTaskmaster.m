@@ -385,7 +385,7 @@ end:
 			if (fixErr == userCanceledErr) {
 				break ;
 			}
-			/*DB?Line*/ NSLog(@"12051: Helper tool failCode=%d  fixErr=%d", failCode, fixErr) ;
+			NSLog(@"Helper tool failCode=%d  fixErr=%d", failCode, fixErr) ;
 			
 			if (fixErr != noErr) {
 				// The helper tool could not be installed or reinstalled.
@@ -420,8 +420,8 @@ end:
 	}
 	
 	// If all of the above went OK, it means that the IPC (inter-process communication)
-	// to the helper tool worked.  But that doesn't mean all is OK yet...
-	// We now have to check the response to see if the command's execution within 
+	// to the helper tool, the low-level stuff, worked.  Move up to check higher
+	// level, that is, check the response to see if the command's execution within 
 	// the helper tool was successful.
 	if ((err == noErr) && (*response_p != nil)) {
 		err = BASGetErrorFromResponse((CFDictionaryRef)*response_p) ;
